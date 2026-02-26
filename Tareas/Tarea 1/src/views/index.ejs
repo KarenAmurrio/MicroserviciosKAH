@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros</title>
+</head>
+<body>
+    <h1>Lista de Libros</h1>
+    <a href="/libros/nuevo">Crear Nuevo Libro</a>
+    <ul>
+        <% libros.forEach(libro => { %>
+            <li>
+                <strong><%= libro.titulo %></strong> - <%= libro.autor %> 
+                (<%= libro.categoria %>) 
+                <a href="/libros/<%= libro._id %>">Ver</a>
+                <a href="/libros/<%= libro._id %>/edit">Editar</a>
+                <form action="/libros/<%= libro._id %>?_method=DELETE" method="POST" style="display: inline;">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
