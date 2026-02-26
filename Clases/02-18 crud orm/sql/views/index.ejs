@@ -1,0 +1,28 @@
+<%- include('layout', { body: null }) %>
+
+<h2>Lista de Usuarios</h2>
+<a href="/usuarios/create" style="margin-bottom: 20px; display: inline-block;">Agregar Nuevo Usuario</a>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% usuarios.forEach(usuario => { %>
+      <tr>
+        <td><%= usuario.nombre %></td>
+        <td><%= usuario.email %></td>
+        <td><%= usuario.activo ? 'Activo' : 'Inactivo' %></td>
+        <td>
+          <a href="/usuarios/edit/<%= usuario.id %>">Editar</a>
+          <a href="/usuarios/delete/<%= usuario.id %>" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
