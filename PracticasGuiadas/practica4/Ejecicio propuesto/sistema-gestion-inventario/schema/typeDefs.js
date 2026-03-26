@@ -65,6 +65,9 @@ const schema = buildSchema(`
     actualizarStock(producto_id: ID!, stock_actual: Int!): Producto
     # Corregido: Es mejor pedir el ID directamente
     eliminarProducto(id: ID!): String
+    crearProveedor(input: ProveedorInput!): Proveedor
+    actualizarProveedor(id: ID!, input: ProveedorInput!): Proveedor
+    eliminarProveedor(id: ID!): String
   }
 `);
 
