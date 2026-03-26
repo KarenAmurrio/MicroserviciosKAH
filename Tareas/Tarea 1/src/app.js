@@ -22,9 +22,11 @@ app.get("/", async (req, res) => {
   const libros = await Libro.find();
   res.render("index", { libros });
 });
+
 app.get("/libros/nuevo", (req, res) => {
   res.render("create");
 });
+
 app.post("/libros", async (req, res) => {
   const { titulo, autor, precio, categoria } = req.body;
   await Libro.create({ titulo, autor, precio, categoria });

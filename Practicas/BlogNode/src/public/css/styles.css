@@ -1,0 +1,150 @@
+/* Seleccionamos el body y eliminamos sus espacios por defecto */
+body {
+  margin: 0;
+  padding: 0;
+
+    font-family: 'Inter', sans-serif; 
+  -webkit-font-smoothing: antialiased;
+  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+.nav-logo{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-links{
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a{
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.nav-links a:hover{
+    color: #00d1b2;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.main-header{
+    font-size: 1em;
+    margin: 20px 0;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.main-header a{
+    text-decoration: none;
+    color: white;
+}
+
+.post-list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+    align-items: center;
+}
+.post-ul{
+    list-style: none;
+    padding: 0; 
+}
+
+.post-ul li{
+    list-style: none;
+    padding: 15px; 
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin: 4px
+}
+
+.post-actions{
+    display: flex;
+    gap: 10px;
+}
+
+.post-actions a, 
+.post-actions form button {
+    text-decoration: none;
+    color: white;
+    background-color: #333;
+    
+    /* CAMBIO 1: El padding horizontal debe ser mayor para que no se vea apretado */
+    padding: 8px 16px; 
+    
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+
+    /* CAMBIO 2: Esto iguala el comportamiento de links y botones */
+    display: inline-block; 
+    
+    /* CAMBIO 3: Evita que el botón use una fuente distinta a la del resto de la página */
+    font-family: inherit;
+    font-size: 14px;
+
+    /* CAMBIO 4: Alinea el texto al centro (vital para el botón) */
+    text-align: center;
+    
+    /* OPCIONAL: Para que todos midan lo mismo sin importar el texto */
+    min-width: 80px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+}
+
+.footer p{
+    color: white;
+    font-size: 0.9em;
+}
+
+.post-detail{
+    display:flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 1000px;
+    background-color: #f4f4f4;
+    border-radius: 16px;
+    margin: 20px;
+}
+
+.post-detail p{
+    display:flex;
+    align-items: column;
+    padding: 20px;
+}

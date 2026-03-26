@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Post</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Actualizar Post</h1>
+    <form action="/posts/<%= post.id %>?_method=PUT" method="POST">
+
+        <label>Titulo: <input type="text" name="titulo" value="<%= post.titulo %>" required></label><br>
+        <label>Contenido: <input type="text" name="contenido" value="<%= post.contenido%>" required></label><br>
+        <button type="submit">Actualizar</button>       
+    </form>
+    <a href="/">Regresar</a>
+</body>
+</html>
