@@ -1,0 +1,46 @@
+services:
+  # 1. Base de datos MySQL para Empleados
+  mysql-empleados:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE: rrhh_empleados
+    networks: [rrhh-network]
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      interval: 10s
+      retries: 5
+
+  # 2. Tu Microservicio de Empleados
+  empleados-service:
+    build: ./empleados-service
+    ports: ['3001:3001']
+    environment:
+      DB_HOST: mysql-empleados
+      DB_USER: root
+      DB_PASS: root1234
+      DB_NAME: rrhh_empleados
+      GRAPHQL_URL: http://proyectos-service:3002/graphql
+    depends_on:
+      mysql-empleados:
+        condition: service_healthy
+    networks: [rrhh-network]
+
+  # 3. Base de datos MongoDB para Proyectos
+  mongo-proyectos:
+    image: mongo:6
+    networks: [rrhh-network]
+
+  # 4. Tu Microservicio de Proyectos
+  proyectos-service:
+    build: ./proyectos-service
+    ports: ['3002:3002']
+    environment:
+      MONGO_URI: mongodb://mongo-proyectos:27017/rrhh_proyectos
+      PORT: 3002
+    depends_on: [mongo-proyectos]
+    networks: [rrhh-network]
+
+networks:
+  rrhh-network:
+    driver: bridge
