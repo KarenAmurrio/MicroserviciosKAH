@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package rrhh;
+
+service EmpleadoService {
+  rpc Crear (EmpleadoRequest) returns (EmpleadoResponse);
+  rpc Listar (Empty) returns (EmpleadoList);
+  rpc Eliminar (IdRequest) returns (DeleteResponse);
+}
+
+message EmpleadoRequest {
+  string nombre = 1;
+  string apellido = 2;
+  string cargo = 3;
+}
+
+message EmpleadoResponse {
+  int32 id = 1;
+  string nombre = 2;
+  string apellido = 3;
+  string cargo = 4;
+}
+
+message EmpleadoList {
+  repeated EmpleadoResponse empleados = 1;
+}
+
+message IdRequest {
+  int32 id = 1;
+}
+
+message DeleteResponse {
+  string mensaje = 1;
+}
+
+message Empty {}
