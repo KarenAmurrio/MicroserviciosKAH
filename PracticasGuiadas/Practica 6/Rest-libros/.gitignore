@@ -1,0 +1,16 @@
+# Dependencias
+node_modules/
+npm-debug.log
+
+# Variables de entorno (Seguridad)
+.env
+.env.local
+
+# Docker
+.data/
+mysql_data/
+mongo_data/
+
+# Otros
+.DS_Store
+dist/
